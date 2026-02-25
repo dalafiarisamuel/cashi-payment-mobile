@@ -7,7 +7,7 @@ import de.jensklingenberg.ktorfit.http.POST
 
 interface PaymentApi {
 
-    @POST("payment")
+    @POST("payments")
     suspend fun processPayment(
         @Body payment: PaymentRemote
     ): PaymentResponse
