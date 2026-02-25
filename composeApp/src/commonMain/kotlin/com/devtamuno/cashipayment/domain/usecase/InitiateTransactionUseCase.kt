@@ -5,8 +5,8 @@ import com.devtamuno.cashipayment.data.remote.repository.PaymentRepository
 import com.devtamuno.cashipayment.domain.model.Payment
 import com.devtamuno.cashipayment.shared.util.Resource
 
-class InitiateTransactionUseCase(private val repository: PaymentRepository) {
-  suspend operator fun invoke(payment: Payment): Resource<Unit> {
+open class InitiateTransactionUseCase(private val repository: PaymentRepository) {
+  open suspend operator fun invoke(payment: Payment): Resource<Unit> {
     return repository.initiateTransaction(payment.toRemote())
   }
 }

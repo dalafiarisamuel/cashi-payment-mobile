@@ -6,10 +6,10 @@ import com.devtamuno.cashipayment.data.remote.data.toDomain
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class GetAllPaymentUseCase(
+open class GetAllPaymentUseCase(
     private val repository: PaymentRepository
 ) {
-    operator fun invoke(): Flow<List<Payment>> {
+    open operator fun invoke(): Flow<List<Payment>> {
         return repository.observeTransactions().map { list ->
             list.map { it.toDomain() }
         }

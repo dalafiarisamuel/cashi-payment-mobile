@@ -30,7 +30,7 @@ fun Payment.formatTimestamp(): String {
     val instant = Instant.fromEpochMilliseconds(timestamp)
     val dateTime = instant.toLocalDateTime(TimeZone.currentSystemDefault())
 
-    val day = dateTime.dayOfMonth
+    val day = dateTime.day
     val monthName = dateTime.month.name.lowercase().replaceFirstChar { it.uppercase() }
     val year = dateTime.year
 

@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.ktorfitPlugin)
     alias(libs.plugins.kotlinSerializationPlugin)
     alias(libs.plugins.googleServices)
+    alias(libs.plugins.mokkery)
 }
 
 kotlin {
@@ -16,6 +17,10 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 
     targets.configureEach {
@@ -44,7 +49,7 @@ kotlin {
             implementation(libs.koin.android)
             implementation(project.dependencies.platform(libs.android.firebase.bom))
             implementation(libs.firebase.firestore.ktx)
-            implementation("com.google.firebase:firebase-firestore")
+            implementation(libs.firebase.firestore)
             implementation(libs.firebase.database)
         }
         commonMain.dependencies {
@@ -76,6 +81,10 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.kotest.assertions)
+            implementation(libs.kotest.framework)
+            implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.turbine)
         }
     }
 }
@@ -109,5 +118,5 @@ android {
 
 dependencies {
     debugImplementation(libs.compose.uiTooling)
+    testImplementation(libs.kotest.runner)
 }
-

@@ -27,11 +27,15 @@ google-services-plugin = "4.4.2"
 ksp = "2.3.5"
 materialIconsExtended = "1.7.3"
 firebaseDatabase = "22.0.1"
-
+kotest = "6.1.3"
+mokkery = "3.0.0"
+kotlinxCoroutines = "1.10.1"
+turbine = "1.2.1"
 
 
 
 [libraries]
+firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
@@ -72,6 +76,11 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 android-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
 material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-framework = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
+kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 
 
@@ -85,3 +94,4 @@ googleServices = { id = "com.google.gms.google-services", version.ref = "google-
 ktorfitPlugin = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit" }
 kotlinSymbolicProcessor = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlinSerializationPlugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+mokkery = { id = "dev.mokkery", version.ref = "mokkery" }
