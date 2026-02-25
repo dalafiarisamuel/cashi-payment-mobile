@@ -1,0 +1,27 @@
+<resources>
+    <string name="payment_receipt">Payment Receipt</string>
+    <string name="back">Back</string>
+    <string name="recipient">Recipient</string>
+    <string name="status">Status</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cashi_wallet">Cashi Wallet</string>
+    <string name="done">Done</string>
+    <string name="copy">Copy</string>
+    <string name="payment_sent">Payment sent</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="payment_pending">Payment Pending</string>
+    <string name="payment_failed">Payment Failed</string>
+    <string name="app_name">Cashi Payment</string>
+    <string name="transaction_history">Your transaction history</string>
+    <string name="make_payment">Make Payment</string>
+    <string name="currency">Currency</string>
+    <string name="no_transactions_yet">No transactions yet</string>
+    <string name="send_money">Send Money</string>
+    <string name="recipient_email">Recipient Email</string>
+    <string name="email_placeholder">example@mail.com</string>
+    <string name="amount">Amount</string>
+    <string name="amount_placeholder">0.00</string>
+    <string name="success_exclamation">Success!</string>
+    <string name="confirm_payment">Confirm Payment</string>
+</resources>

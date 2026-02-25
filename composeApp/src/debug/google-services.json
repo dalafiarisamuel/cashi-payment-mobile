@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "724334743381",
+    "project_id": "cashi-payment",
+    "storage_bucket": "cashi-payment.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724334743381:android:73719944c8e766e6fe69dc",
+        "android_client_info": {
+          "package_name": "com.devtamuno.cashipayment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvDLaU-hUQDyqFi_sY37NQhuTDwqDd2kI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
