@@ -62,7 +62,7 @@ fun ReceiptScreen(payment: Payment, onBack: () -> Unit) {
         modifier = Modifier.fillMaxSize().padding(paddingValues).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-      // Status Icon
+      
       Box(
           modifier =
               Modifier.size(80.dp).clip(CircleShape).background(statusColor.copy(alpha = 0.1f)),
@@ -93,7 +93,6 @@ fun ReceiptScreen(payment: Payment, onBack: () -> Unit) {
 
       Spacer(modifier = Modifier.height(32.dp))
 
-      // Amount Section
       Text(
           text = "${payment.amount} ${payment.currency}",
           style = MaterialTheme.typography.displayMedium,
@@ -103,7 +102,6 @@ fun ReceiptScreen(payment: Payment, onBack: () -> Unit) {
 
       Spacer(modifier = Modifier.height(32.dp))
 
-      // Details Card
       Card(
           modifier = Modifier.fillMaxWidth(),
           shape = RoundedCornerShape(16.dp),
