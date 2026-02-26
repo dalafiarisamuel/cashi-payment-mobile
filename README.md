@@ -1,35 +1,88 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# Cashi Payment - Kotlin Multiplatform (KMP)
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+Cashi Payment is a mobile application built using **Kotlin Multiplatform (KMP)** and **Compose Multiplatform**, targeting both **Android** and **iOS**. The project demonstrates a modern approach to cross-platform development with a shared codebase for business logic, data, and UI.
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## Getting Started
 
-### Build and Run Android Application
+### Prerequisites
+- **Android Studio** (Latest Ladybug or newer)
+- **Xcode** (For iOS development)
+- **Kotlin Multiplatform Plugin** installed in Android Studio
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
-
-### Build and Run iOS Application
-
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+### Project Structure
+- `composeApp/src/commonMain`: Shared business logic, domain models, use cases, and Compose UI.
+- `composeApp/src/androidMain`: Android-specific implementations and resources.
+- `composeApp/src/iosMain`: iOS-specific implementations.
+- `iosApp`: Swift-based entry point for the iOS application.
 
 ---
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## Architecture
+
+The project follows **Clean Architecture** principles combined with **MVVM** for the presentation layer:
+
+1. **Presentation Layer**:
+    - **ViewModels**: Manage UI state using `StateFlow` and handle user interactions.
+    - **Compose Multiplatform**: Declarative UI shared between Android and iOS.
+2. **Domain Layer**:
+    - **Models**: Pure Kotlin data classes.
+    - **Use Cases**: Encapsulate specific business logic (e.g., `InitiateTransactionUseCase`, `GetAllPaymentUseCase`).
+3. **Data Layer**:
+    - **Repositories**: Abstract data sources.
+    - **Remote Sources**: Handle API calls (Ktor).
+
+### Key Libraries
+- **Compose Multiplatform**: Shared UI.
+- **Koin**: Dependency Injection.
+- **Ktor**: Networking.
+- **Kotlinx Serialization**: JSON parsing.
+- **Kotlinx Coroutines**: Asynchronous programming.
+- **Napier**: Logging.
+
+---
+
+## Testing
+
+The project emphasizes quality through unit testing of ViewModels and Use Cases.
+
+### Test Stack
+- **Kotest**: Powerful testing framework using `BehaviorSpec` for descriptive tests.
+- **Mokkery**: Kotlin Multiplatform mocking library.
+- **Turbine**: Small library for testing Kotlin Coroutines `Flow`.
+
+> **Note:** To run Kotest tests directly from Android Studio, ensure you have the [Kotest plugin](https://plugins.jetbrains.com/plugin/13308-kotest) installed.
+
+### How to run tests
+You can run all tests from the terminal:
+
+- **Common Tests**:
+  ```shell
+  ./gradlew :composeApp:allTests
+  ```
+
+- **Android Specific Tests**:
+  ```shell
+  ./gradlew :composeApp:testDebugUnitTest
+  ```
+
+---
+
+## How to Run the App
+
+### Android
+1. Open the project in Android Studio.
+2. Select `composeApp` in the run configurations.
+3. Click the **Run** button or use the terminal:
+   ```shell
+   ./gradlew :composeApp:installDebug
+   ```
+
+### iOS
+1. Open the `iosApp` folder in Xcode.
+2. Select a simulator or physical device.
+3. Click the **Run** button.
+   *Note: You can also run the iOS app directly from Android Studio if you have the KMP plugin and Xcode installed.*
+
+---
+
+Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
